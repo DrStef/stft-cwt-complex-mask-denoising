@@ -39,9 +39,60 @@ We start with STFT-based masking (inspired by Clearformer-style approaches) and 
 Magnitude-only masking creates musical noise artifacts.  
 Complex masks (magnitude + phase correction) reduce these artifacts significantly.
 
+
+## Model Choice: Simple U-Net vs. Full U-Net
+
+### Overview
+We currently use a **Simple U-Net** architecture as the baseline for complex mask estimation in the STFT domain. This lightweight model serves as a first approximation to quickly validate the overall pipeline (data preparation, mixture generation, normalization, complex masking, and waveform reconstruction).
+
+The Simple U-Net is intentionally kept minimal:
+- 3 downsampling / upsampling levels
+- Filter progression: 32 → 64 → 128 → 256 (bottleneck)
+- Basic skip connections without residuals or attention mechanisms
+- Total parameters: ~1–2 million (fast training, low memory footprint)
+
+This design allows rapid iteration, debugging of the denoising pipeline, and early perceptual evaluation of denoised audio samples.
+
+### Why Start with Simple U-Net?
+- **Speed and simplicity** — Training epochs are short (~10 min each), enabling fast experimentation with mixtures, SNR levels, normalization, clamping bounds, and loss functions (mask + waveform).
+- **Lower risk of overfitting** — With only 2000 training frames (1.5 s each at +6 dB), a small model is less likely to memorize specific speakers or phrases.
+- **Easier debugging** — Fewer layers mean fewer opportunities for shape mismatches, gradient issues, or vanishing/exploding gradients.
+- **Proof of concept** — If the Simple U-Net already produces intelligible speech with reduced noise and minimal musical artifacts, it confirms the core idea (complex masking + waveform loss) is sound.
+
+### When / Why Upgrade to a Full U-Net?
+A **Full U-Net** (or enhanced variant) would bring significantly more capacity and performance, especially for challenging cases (lower SNR, impulsive noises like baby cry / helicopter / chainsaw, or industrial transients).
+
+Expected improvements with a Full U-Net:
+- Deeper architecture (4–5 levels, filters up to 512–1024)
+- Residual connections → better gradient flow and feature reuse
+- Attention gates → focus on relevant time-frequency regions (speech formants vs. noise)
+- Higher parameter count (~10–30 million) → better modeling of subtle phase corrections and high-frequency details
+- Reduced musical noise and phase artifacts (metallic ringing, bottle clinking, watery shimmer)
+- Improved speech intelligibility and naturalness, even at moderate-to-low SNR
+
+Typical gains observed in literature (DCCRN, MetricGAN-U, FullSubNet, etc.):
+- +2 to +5 dB additional SNR improvement
+- +0.2 to +0.5 in PESQ/STOI scores
+- Much cleaner perceptual quality (fewer audible artifacts)
+
+### Current Strategy
+We begin with the **Simple U-Net** to:
+- Validate the entire end-to-end pipeline
+- Achieve a working baseline with audible speech enhancement at +6 dB
+- Identify remaining limitations (e.g., residual musical noise, weak transients)
+
+Once the Simple U-Net produces clean, intelligible denoised speech with minimal artifacts, we plan to upgrade to a **Full U-Net** (or Attention/Res U-Net variant) to push performance further — especially when scaling to multiple SNR levels, impulsive noises, and eventual CWT-based processing.
+
+This staged approach (simple → full) balances speed of experimentation with final quality.
+
+
+
+
+
+
 ### Future directions
 - Train on multiple SNR levels (0 dB, +12 dB, eventually negative)
-- Switch to CWT (Morlet wavelet) for better time-frequency resolution on transients
+- Switch to CWT (complex Morlet wavelet) for better time-frequency resolution on transients
 - Target industrial applications: bearing fault detection, drill noise separation in exploration
 - Add objective metrics: PESQ, STOI (once training stabilizes)
 
