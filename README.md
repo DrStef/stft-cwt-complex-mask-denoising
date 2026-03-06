@@ -36,7 +36,7 @@ Complex masks (magnitude + phase correction) reduce these artifacts significantl
 - Target industrial applications: bearing fault detection, drill noise separation in exploration
 - Add objective metrics: PESQ, STOI (once training stabilizes)
 
-## Current training status (as of March 2025)
+## Current training status (as of March 2026)
 - Running on SNR = +6 dB mixtures (speech audible but noise clearly present)
 - U-Net with waveform loss activated
 - First epochs in progress – stay tuned for denoised audio samples !
