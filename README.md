@@ -41,6 +41,13 @@ Complex masks (magnitude + phase correction) reduce these artifacts significantl
 - U-Net with waveform loss activated
 - First epochs in progress – stay tuned for denoised audio samples !
 
+### Acknowledgments
+- LibriSpeech: clean speech corpus
+- ESC-10: environmental noise dataset
+- Clearformer & DCCRN papers: inspiration for complex masking
+
+
+
 ## Setup & Requirements
 
 ```bash
