@@ -108,43 +108,6 @@ This staged approach (simple → full) balances speed of experimentation with fi
 
 ### Structure of the Repository
 
-complex-mask-denoising/                    # nom de repo GitHub privé (ou denoising-complex-mask, speech-noise-separation, etc.)
-├── src/                                   # code source réutilisable (modules Python)
-│   ├── __init__.py
-│   ├── dataset.py                         # DenoisingDataset class + data loading utils
-│   ├── model.py                           # SimpleUNet class + variantes futures (CWT U-Net, etc.)
-│   ├── transforms.py                      # STFT / iSTFT / CWT wrappers (torchaudio + pywt/scipy)
-│   ├── mixture.py                         # fonctions de génération mixtures (avec SNR control, peak norm, anti-clip)
-│   ├── train.py                           # training loop, loss functions (mask + waveform), logger
-│   ├── evaluate.py                        # SNR gain, PESQ/STOI, spectro plot, audio save/listen
-│   └── utils.py                           # helpers (save/load .npy, random seed, logging, etc.)
-├── notebooks/                             # notebooks exploratoires / dev (pas de code critique ici)
-│   ├── v01_current.ipynb                  # ton notebook actif
-│   ├── v00_old_attempt.ipynb              # archive du premier essai
-│   ├── exploration/                       # sous-dossiers pour tests rapides
-│   │   ├── mixtures_check.ipynb           # écoute/visualisation SNR
-│   │   ├── cwt_prototype.ipynb            # premiers tests CWT
-│   │   └── math_notes.ipynb               # notes maths, formules, derivations
-├── data/                                  # données (ne pas commit les gros fichiers !)
-│   ├── raw/                               # liens ou copies minimales LibriSpeech/ESC-10
-│   ├── processed/                         # frames .npy (clean_speech_frames, noise_frames)
-│   └── mixtures/                          # .npy par SNR (noisy_mixtures_6dB.npy, etc.)
-│       └── samples/                       # .wav pour écoute (noisy/denoised/clean par exemple)
-├── models/                                # checkpoints et logs
-│   ├── checkpoints/                       # .pth (best_unet_mask.pth, last_epoch.pth)
-│   └── logs/                              # tensorboard logs, loss curves .csv
-├── results/                               # outputs finaux (visuels, audio, metrics)
-│   ├── plots/                             # spectrograms, waveforms, loss curves
-│   ├── audio/                             # denoised samples .wav + noisy/clean pour comparaison
-│   └── metrics/                           # CSV avec SNR gain, PESQ/STOI, etc.
-├── configs/                               # paramètres centralisés (YAML ou JSON)
-│   └── config.yaml                        # SNR_list, n_fft, hop_length, bounds, lr, epochs...
-├── requirements.txt                       # dépendances (torch, torchaudio, numpy, matplotlib, torchinfo, pesq, pystoi)
-├── README.md                              # le draft qu’on a commencé + badges + installation
-├── .gitignore                             # ignore data/*, models/checkpoints/*, *.pth, __pycache__, etc.
-└── LICENSE                                # MIT ou ce que tu préfères
-
-
 
 complex-mask-denoising/                     # Nom de la repo privée
 ├── src/                                    # Code source réutilisable (modules Python)
@@ -183,10 +146,52 @@ complex-mask-denoising/                     # Nom de la repo privée
 └── LICENSE                                 # MIT (ou autre)
 
 
+stft-cwt-complex-mask-denoising/
+├── src/                        # Core source code (reusable Python modules)
+│   ├── __init__.py
+│   ├── dataset.py              # DenoisingDataset logic & data loading
+│   ├── model.py                # SimpleUNet & Advanced Residual v06d variants
+│   ├── transforms.py           # STFT/iSTFT & CWT complex wrappers
+│   ├── mixture.py              # Mixture generation (SNR control, peak norm)
+│   ├── train.py                # Training loops, multi-losses (mask + waveform)
+│   ├── evaluate.py             # Metrics (SNR gain, PESQ, STOI) & visualization
+│   └── utils.py                # Helpers (I/O, seeds, logging)
+├── notebooks/                  # R&D and Experimentation zone
+│   ├── v06d_advanced_unet.ipynb # Current state-of-the-art notebook
+│   ├── archive/                # Previous iterations and attempts
+│   └── exploration/            # Prototypes and math notes
+│       ├── cwt_prototype.ipynb # Early CWT testing
+│       └── snr_analysis.ipynb  # SNR/Volume distribution checks
+├── data/                       # Dataset management (Git ignored for large files)
+│   ├── raw/                    # Original LibriSpeech/ESC-10 subsets
+│   ├── processed/              # Pre-processed .npy frames
+│   └── samples/                # .wav files for quick audio comparison
+├── models/                     # Model persistence and tracking
+│   ├── checkpoints/            # Saved .pth weights (e.g., best_advanced_v06d.pth)
+│   └── logs/                   # Training curves and CSV logs
+├── results/                    # Final outputs for reports
+│   ├── plots/                  # Spectrograms, error maps, and loss curves
+│   ├── audio/                  # Denoised audio samples for demo
+│   └── metrics/                # Comprehensive SNR/PESQ/STOI results
+├── configs/                    # Centralized parameters
+│   └── config.yaml             # Hyperparameters (N_FFT, LR, SNR_list, etc.)
+├── requirements.txt            # Project dependencies
+├── .gitignore                  # Prevents committing large data/weights
+├── README.md                   # Project documentation
+└── LICENSE                     # Licensing information
 
 
+## 📂 Repository Structure
 
+![Project Structure](results/plots/repo_structure.png)
 
+*The project is organized into modular components to ensure scalability and easy experimentation across different spectral domains (STFT/CWT).*
+
+## 🧠 Model Architecture (v06d)
+
+![Full Advanced U-Net v06d](results/plots/architecture_v06d.png)
+
+*Our flagship **Residual U-Net** architecture features 5 levels of depth and 512 filters at the bottleneck, optimized for complex phase-preserving masking.*
 
 
 
