@@ -1,4 +1,4 @@
-# Advanced Speech Denoising with Complex Masks (STFT + Future CWT)
+# Advanced Speech Denoising with Complex Masks STFT, CWT
 
 **Dr. Stéphane Dedieu** 
 <br>Applied Mathematics | Digital Signal Processing | ML  <br>
