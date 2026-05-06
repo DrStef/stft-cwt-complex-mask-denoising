@@ -25,7 +25,7 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 - **Architecture**: SimpleUNet with complex mask prediction (real + imaginary)
 - **Key Innovation**: Frequency-dependent "Dog Bone" clamping inspired by the Speech Banana in audiology
 - **Noise types**: Stationary and pseudo-stationary sounds from ESC-50 (rain, wind, engines, helicopter, etc.)
-- **Training data**: 1.5-second frames from LibriSpeech + ESC-50 mixtures at multiple SNR levels
+- **Training data**: 32-ms frames from LibriSpeech + ESC-50 mixtures at multiple SNR levels
 - **Loss**: Hybrid (Complex Mask L1 + Waveform L1 + strong Phase Consistency Loss)
 - **Best validation loss**: ~0.387 (as of May 5, 2026)
 
