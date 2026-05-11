@@ -37,6 +37,51 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 - Overlap-Add inference with optional mixture blending (`alph ≈ 0.05`)
 - Clean, reproducible pipeline
 
+
+## Results & Performance (v11aa - Banana Clamping)
+
+### Objective Results (PESQ - Wideband)
+
+| Condition                | SNR    | PESQ Noisy | PESQ Denoised | Improvement | Listening Quality |
+|--------------------------|--------|------------|---------------|-------------|-------------------|
+| Female + Rain            | 6 dB   | 1.090      | **1.596**     | +0.506      | Good              |
+| Female + Rain            | 12 dB  | 1.263      | **1.980**     | +0.718      | Very Good         |
+| Female + Helicopter      | 12 dB  | 1.263      | **2.046**     | +0.783      | Very Good         |
+| Female + Helicopter      | 15 dB  | 1.445      | **2.268**     | +0.823      | Excellent         |
+
+### Visual Results
+
+**Female + Rain - SNR 12 dB**
+
+![Female + Rain - Spectrogram](results/Female_Rain_10s_SNR12dB_STFT.png)  
+![Female + Rain - Waveform](results/Female_Rain_10s_SNR12dB_waveform.png)
+
+**Female + Helicopter - SNR 12 dB**
+
+![Female + Helicopter - Spectrogram](results/Female_Helico_10s_SNR12dB_STFT.png)  
+![Female + Helicopter - Waveform](results/Female_Helico_10s_SNR12dB_waveform.png)
+
+### Audio Examples (10 seconds)
+
+- **[Female + Rain - SNR 12 dB - Noisy](results/Female_Rain_10s_SNR12dB_noisy.wav)**  
+- **[Female + Rain - SNR 12 dB - Denoised](results/Female_Rain_10s_SNR12dB_denoised.wav)**
+
+- **[Female + Helicopter - SNR 12 dB - Noisy](results/Female_Helico_10s_SNR12dB_noisy.wav)**  
+- **[Female + Helicopter - SNR 12 dB - Denoised](results/Female_Helico_10s_SNR12dB_denoised.wav)**
+
+---
+
+**Key Takeaway**:  
+The **Banana Clamping** ("Os de Chien") strategy delivers strong and consistent performance across different noise types and SNR levels, with particularly good voice clarity and harmonic preservation.
+
+
+
+
+
+
+
+## ---------------- under construction
+    
 ## Repository Structure (to be cleaned)
 
 - `notebooks/` → Main experiments (v07r currently active)
