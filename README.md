@@ -53,11 +53,9 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 **Female + Rain - SNR 12 dB**
 
-
-![Female + Rain - Waveform](results/Female_Rain_10s_SNR12dB_waveform.png)
-
-
-![Female + Rain - Spectrogram](results/Female_Rain_10s_SNR12dB_1s_STFT_analysis.png)  
+| ![Female + Rain - Waveform](results/Female_Rain_10s_SNR12dB_waveform.png)  |
+| --- |
+| ![Female + Rain - Spectrogram](results/Female_Rain_10s_SNR12dB_1s_STFT_analysis.png) |
 
 
 **Female + Helicopter - SNR 12 dB**
