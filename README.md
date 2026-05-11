@@ -56,7 +56,7 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 <div align="center">
   
-| <p align="center">  ![Female + Rain - Waveform](results/Female_Rain_10s_SNR12dB_waveform.png)  </p> |
+| <p align="center"> <img src="results/Female_Rain_10s_SNR12dB_waveform.png" width="800" alt="Waveform"> </p> |
 | --- |
 | <p align="center"> <b><i> 10 seconds waveform: Female voice + Rain at SNR = 12 dB </i></b> </p> |
 
@@ -67,8 +67,8 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 <div align="center">
   
-| <p align="center"> ![Female + Rain - Spectrogram](results/Female_Rain_10s_SNR12dB_1s_STFT_analysis.png)  </p> |
-| --- |
+| <p align="center"> <img src="results/Female_Rain_10s_SNR12dB_1s_STFT_analysis.png" width="800" alt="Waveform"> </p> |
+| ---  | 
 | <p align="center"> <b><i>  1 second frame: magnitude of STFT - female voice + Rain SNR= 12 dB </i></b> </p> |
 
 </div>
