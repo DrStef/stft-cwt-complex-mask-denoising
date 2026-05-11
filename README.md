@@ -41,21 +41,35 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 ### Objective Results (PESQ - Wideband)
 
+#### Performance Summary - Female Voice + Helicopter (10 seconds)
+
 <div align="center">
 
-| Condition                | SNR    | PESQ Noisy | PESQ Denoised | Improvement | Listening Quality |
-|--------------------------|--------|------------|---------------|-------------|-------------------|
-| Female voice  + Rain            | 0 dB   | 1.041      | **1.543**     | +0.502      | Fair / Improved intelligibility |
-| Female voice + Rain            | 6 dB   | 1.090      | **1.596**     | +0.506      | Fair             |
-| Female voice + Rain            | 12 dB  | 1.263      | **1.980**     | +0.718      | Good         |
-| Female voice + Rain            | 15 dB  | 1.445      | **2.268**     | +0.718      | Good         |
-|        |       |        |      |      |     |
-| Female voice + Helicopter      | 0 dB  | 1.029      | **1.195**     | +0.166      | Very challenging        |
-| Female voice + Helicopter      | 6 dB  | 1.071      | **1.515**     | +0.445      | Good recovery         |
-| Female voice + Helicopter      | 12 dB  | 1.263      | **2.046**     | +0.783      | Good         |
-| Female voice + Helicopter      | 15 dB  | 1.445      | **2.268**     | +0.823      | Good         |
+| SNR    | PESQ Noisy | PESQ Denoised<br>(Model Phase) | Improvement<br>(vs Noisy) | Notes |
+|--------|------------|--------------------------------|---------------------------|-------|
+| 0 dB   | 1.029      | **1.195**                      | +0.166                    | Very challenging |
+| 6 dB   | 1.071      | **1.515**                      |  +0.445                    | Reasonable recovery |
+| 12 dB  | 1.263      | **2.046**                      | +0.783             | Good |
+| 15 dB  | 1.441      | **2.363**                      | +0.922                    | Good |
 
 </div>
+
+<br>
+
+#### Performance Summary - Female Voice + Rain (10 seconds)
+
+<div align="center">
+
+| SNR     | PESQ Noisy | PESQ Denoised<br>(Model Phase) |  Improvement<br>(vs Noisy) | Notes |
+|---------|------------|--------------------------------|--------------------------|-------|
+| 0 dB    | 1.041      | **1.543**                      |  +0.503                    | Decent intelligibility |
+| 6 dB    | 1.090      | **1.596**                      |+0.506                    | Reasonable recovery  |
+| 12 dB   | 1.263      | **1.980**                      |  +0.718                    | Good |
+| 15 dB   | 1.445      | **2.268**                      |  +0.823                    | Good |
+
+</div>
+
+
 
 
 ### Visual Results & Audio Demos
