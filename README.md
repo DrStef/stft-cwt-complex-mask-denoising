@@ -53,28 +53,28 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 **Female + Rain - SNR 12 dB**
 
-| ![Female + Rain - Waveform](results/Female_Rain_10s_SNR12dB_waveform.png)  |
-| --- |
-| 10 seconds waveform: female voice + Rain SNR= 12 dB |
-
 
 <div align="center">
-
-**Female + Rain - SNR 12 dB**
-
-![Female + Rain - Waveform](results/Female_Rain_10s_SNR12dB_waveform.png)
-
-***10 seconds waveform: Female voice + Rain at SNR = 12 dB***
+  
+| <p align="center">  ![Female + Rain - Waveform](results/Female_Rain_10s_SNR12dB_waveform.png)  </p> |
+| --- |
+| <p align="center"> <b><i> 10 seconds waveform: Female voice + Rain at SNR = 12 dB </i></b> </p> |
 
 </div>
 
+<br>
+<br>
 
-
-
-| ![Female + Rain - Spectrogram](results/Female_Rain_10s_SNR12dB_1s_STFT_analysis.png) |
+<div align="center">
+  
+| <p align="center"> ![Female + Rain - Spectrogram](results/Female_Rain_10s_SNR12dB_1s_STFT_analysis.png)  </p> |
 | --- |
-| 1 second frame: magnitude of STFT - female voice + Rain SNR= 12 dB |
+| <p align="center"> <b><i>  1 second frame: magnitude of STFT - female voice + Rain SNR= 12 dB </i></b> </p> |
 
+</div>
+
+<br>
+<br>
 
 **Female + Helicopter - SNR 12 dB**
 
