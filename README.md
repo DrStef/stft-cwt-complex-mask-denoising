@@ -42,12 +42,17 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 ### Objective Results (PESQ - Wideband)
 
+<div align="center">
+
 | Condition                | SNR    | PESQ Noisy | PESQ Denoised | Improvement | Listening Quality |
 |--------------------------|--------|------------|---------------|-------------|-------------------|
 | Female + Rain            | 6 dB   | 1.090      | **1.596**     | +0.506      | Good              |
 | Female + Rain            | 12 dB  | 1.263      | **1.980**     | +0.718      | Very Good         |
 | Female + Helicopter      | 12 dB  | 1.263      | **2.046**     | +0.783      | Very Good         |
 | Female + Helicopter      | 15 dB  | 1.445      | **2.268**     | +0.823      | Excellent         |
+
+</div>
+
 
 ### Visual Results
 
