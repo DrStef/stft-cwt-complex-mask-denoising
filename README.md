@@ -88,6 +88,28 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 ### Audio Examples (10 seconds)
 
+<div align="center">
+
+**Female + Rain - SNR 12 dB**
+
+**Waveform**
+
+<audio controls>
+  <source src="results/Female_Rain_10s_SNR12dB_noisy.wav" type="audio/wav">
+</audio>
+
+**Denoised (v11aa)**
+
+<audio controls>
+  <source src="results/Female_Rain_10s_SNR12dB_denoised.wav" type="audio/wav">
+</audio>
+
+</div>
+
+
+
+
+
 - **[Female + Rain - SNR 12 dB - Noisy](results/Female_Rain_10s_SNR12dB_noisy.wav)**  
 - **[Female + Rain - SNR 12 dB - Denoised](results/Female_Rain_10s_SNR12dB_denoised.wav)**
 
