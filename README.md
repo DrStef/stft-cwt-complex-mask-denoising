@@ -36,6 +36,16 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 - Overlap-Add inference with optional mixture blending (`alph ≈ 0.05`)
 - Clean, reproducible pipeline
 
+## Dataset Download
+
+The complete pre-generated dataset used throughout this project is available here:
+
+**`dataset_mixtures_1s_2000_v110.npz`** (1.3 GB)
+
+[📥 Download Dataset Folder](https://drive.google.com/drive/folders/1k7sIiFVifEoUBanHORgapISwdpMvhn1P?usp=sharing)
+
+This dataset contains 2000 balanced 1-second frames with controlled SNR levels (0, 6, 12, 15 dB), using clean speech from LibriSpeech and selected noises from ESC-10. It is the reference dataset for all experiments in this repository.
+
 
 ## Results & Performance (v11aa - Banana Clamping)
 
