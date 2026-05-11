@@ -20,14 +20,13 @@ The current focus is on **STFT-based processing** with a lightweight **SimpleUNe
 
 Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** for better handling of non-stationary and impulsive noises.
 
-## Current Status (v07r)
+## Current Status (v11a)
 
 - **Architecture**: SimpleUNet with complex mask prediction (real + imaginary)
 - **Key Innovation**: Frequency-dependent "Dog Bone" clamping inspired by the Speech Banana in audiology
 - **Noise types**: Stationary and pseudo-stationary sounds from ESC-50 (rain, wind, engines, helicopter, etc.)
 - **Training data**: 1 - 1.5s frames from LibriSpeech + ESC-50 mixtures at multiple SNR levels
 - **Loss**: Hybrid (Complex Mask L1 + Waveform L1 + strong Phase Consistency Loss)
-- **Best validation loss**: ~0.387 (as of May 5, 2026)
 
 ## Features
 
@@ -46,10 +45,15 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 | Condition                | SNR    | PESQ Noisy | PESQ Denoised | Improvement | Listening Quality |
 |--------------------------|--------|------------|---------------|-------------|-------------------|
-| Female + Rain            | 6 dB   | 1.090      | **1.596**     | +0.506      | Good              |
-| Female + Rain            | 12 dB  | 1.263      | **1.980**     | +0.718      | Very Good         |
-| Female + Helicopter      | 12 dB  | 1.263      | **2.046**     | +0.783      | Very Good         |
-| Female + Helicopter      | 15 dB  | 1.445      | **2.268**     | +0.823      | Excellent         |
+| Female voice  + Rain            | 0 dB   | 1.041      | **1.543**     | +0.502      | Fair / Improved intelligibility |
+| Female voice + Rain            | 6 dB   | 1.090      | **1.596**     | +0.506      | Fair             |
+| Female voice + Rain            | 12 dB  | 1.263      | **1.980**     | +0.718      | Good         |
+| Female voice + Rain            | 15 dB  | 1.445      | **2.268**     | +0.718      | Good         |
+|        |       |        |      |      |     |
+| Female voice + Helicopter      | 0 dB  | 1.029      | **1.195**     | +0.166      | Very challenging        |
+| Female voice + Helicopter      | 6 dB  | 1.071      | **1.515**     | +0.445      | Good recovery         |
+| Female voice + Helicopter      | 12 dB  | 1.263      | **2.046**     | +0.783      | Good         |
+| Female voice + Helicopter      | 15 dB  | 1.445      | **2.268**     | +0.823      | Good         |
 
 </div>
 
