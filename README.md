@@ -54,9 +54,17 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 </div>
 
 
-### Visual Results
+### Visual Results & Audio Demos
 
-**Female + Rain - SNR 12 dB**
+All visual results (waveforms, spectrograms, and error maps) as well as audio examples have been saved in the `/results` folder.
+
+**Included demonstrations:**
+- **Female voice + Rain** at SNR = 0, 6, 12, and 15 dB
+- **Female voice + Helicopter** at SNR = 0, 6, 12, and 15 dB
+
+You can listen to the full 10-second clips and explore the corresponding STFT visualizations directly in the [results](results/) directory.
+
+**Female voice + Rain - SNR 12 dB**
 
 
 <div align="center">
@@ -67,7 +75,6 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 </div>
 
-<br>
 <br>
 
 <div align="center">
@@ -81,28 +88,22 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 <br>
 <br>
 
-**Female + Helicopter - SNR 12 dB**
-
-![Female + Helicopter - Spectrogram](results/Female_Helico_10s_SNR12dB_STFT.png)  
-![Female + Helicopter - Waveform](results/Female_Helico_10s_SNR12dB_waveform.png)
-
-### Audio Examples (10 seconds)
+**Female voice + Helicopter - SNR 12 dB**
 
 <div align="center">
+  
+| <p align="center"> <img src="results/Female_Helico_10s_SNR12dB_waveform.png" width="800" alt="Waveform"> </p> |
+| --- |
+| <p align="center"> <b><i> 10 seconds waveform: Female voice + Helicopter at SNR = 12 dB </i></b> </p> |
 
-**Female + Rain - SNR 12 dB**
+</div>
 
-**Waveform**
 
-<audio controls>
-  <source src="results/Female_Rain_10s_SNR12dB_noisy.wav" type="audio/wav">
-</audio>
-
-**Denoised (v11aa)**
-
-<audio controls>
-  <source src="results/Female_Rain_10s_SNR12dB_denoised.wav" type="audio/wav">
-</audio>
+<div align="center">
+  
+| <p align="center"> <img src="results/Female_Helico_10s_SNR12dB_1s_STFT_analysis.png" width="800" alt="Waveform"> </p> |
+| ---  | 
+| <p align="center"> <b><i>  1 second frame: magnitude of STFT - female voice + Helicopter SNR= 12 dB </i></b> </p> |
 
 </div>
 
@@ -110,12 +111,19 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 
 
 
-- **[Female + Rain - SNR 12 dB - Noisy](results/Female_Rain_10s_SNR12dB_noisy.wav)**  
-- **[Female + Rain - SNR 12 dB - Denoised](results/Female_Rain_10s_SNR12dB_denoised.wav)**
+### Audio Examples (10 seconds)
 
-- **[Female + Helicopter - SNR 12 dB - Noisy](results/Female_Helico_10s_SNR12dB_noisy.wav)**  
-- **[Female + Helicopter - SNR 12 dB - Denoised](results/Female_Helico_10s_SNR12dB_denoised.wav)**
 
+**Female voice + Rain - SNR 12 dB**
+- [▶️ Listen to Noisy](results/Female_Rain_10s_SNR12dB_noisy.wav)  
+- [▶️ Listen to Denoised v11aa](results/Female_Rain_10s_SNR12dB_denoised.wav)  
+- [▶️ Listen Clean](results/Female_Rain_10s_SNR12dB_clean.wav)
+
+
+**Female voice + Helicopter - SNR 12 dB**
+- [▶️ Listen to Noisy](results/Female_Helico_10s_SNR12dB_noisy.wav)
+- [▶️ Listen to Denoised v11aa](results/Female_Helico_10s_SNR12dB_denoised.wav)
+- [▶️ Listen to Clean](results/Female_Helico_10s_SNR12dB_clean.wav)
 ---
 
 **Key Takeaway**:  
