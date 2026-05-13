@@ -5,11 +5,23 @@
 **Dr. Stéphane Dedieu** 
 <br>Applied Mathematics | Digital Signal Processing | ML  <br>
 January - March 2026  <br>
+update May 2026 <br> 
 <a href="https://www.linkedin.com/in/sdedieu/">
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30" height="30">
 </a>
 
 <br>
+
+
+
+
+## Notebooks
+
+**PHASE I: Simple U-Net with 128×128 STFT & Banana Clamping**
+
+[SimpleUNet v11aa - STFT Denoising with Banana Clamping](link-to-your-notebook.ipynb)
+
+Lightweight U-Net for speech enhancement in hostile acoustic environments. The model uses 128×128 STFT frames, a hybrid loss with strong phase consistency, and our custom frequency-dependent **Banana Clamping** ("Os de Chien"). It was trained and evaluated on speech + noise mixtures (rain, helicopter, chainsaw, etc.) at controlled SNR levels (6 dB  and 0 to 15 dB).
 
 
 ## Project Overview
