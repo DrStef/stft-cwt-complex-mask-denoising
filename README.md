@@ -72,7 +72,7 @@ The **SimpleUNet v11a** is a lightweight U-Net architecture designed for high-fi
 
 <br> 
 
-| <p align="center"> <img src="images/constant_clamping_v11a.png" width="400" alt="Waveform"> </p> | <p align="center"> <img src="images/banana_clamping_v11a.png" width="400" alt="Waveform"> </p> | 
+| <p align="center"> <img src="images/constant_clamping_v11aa.png" width="400" alt="Waveform"> </p> | <p align="center"> <img src="images/banana_clamping_v11a.png" width="400" alt="Waveform"> </p> | 
 | --- | --- |
 | <p align="center"> <i> **Contant clamping K=+/-5** </i> </p> | <p align="center"> <i> **Banana clamping** </i> </p> |
 
