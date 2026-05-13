@@ -20,31 +20,45 @@ The current focus is on **STFT-based processing** with a lightweight **SimpleUNe
 
 Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** for better handling of non-stationary and impulsive noises.
 
-## Current Status (v11a)
+### Project Goals
+- Develop robust denoising solutions suitable for **edge / embedded** devices, targeting applications such as EERS communication systems.
+- Maintain high voice clarity and reduce hoarseness even in low SNR conditions.
+- Provide reproducible experiments with controlled SNR mixtures (0, 6, 12, 15 dB).
 
-- **Architecture**: SimpleUNet with complex mask prediction (real + imaginary)
-- **Key Innovation**: Frequency-dependent "Dog Bone" clamping inspired by the Speech Banana in audiology
-- **Noise types**: Stationary and pseudo-stationary sounds from ESC-50 (rain, wind, engines, helicopter, etc.)
-- **Training data**: 1 - 1.5s frames from LibriSpeech + ESC-50 mixtures at multiple SNR levels
-- **Loss**: Hybrid (Complex Mask L1 + Waveform L1 + strong Phase Consistency Loss)
+### Dataset
+We use a custom pre-generated dataset: **`dataset_mixtures_1s_2000_v110.npz`** (1.3 GB)
 
-## Features
+- 2000 balanced 1-second frames (@ 16 kHz) with **STFT 128×128**
+- High-pass filter at 150 Hz
+- Clean speech from LibriSpeech (balanced male + female voices)
+- Noises from ESC-10: Rain, Sea Waves, Helicopter, Chainsaw, Fire Crackling
+- Controlled SNR levels: -6, 0, 6, 12 dB
 
-- Phase-aware complex masking to reduce musical noise and hoarseness
-- Frequency-dependent clamping ("Dog Bone") for intelligent noise suppression
-- Pre-computed STFTs for fast training
-- Overlap-Add inference with optional mixture blending (`alph ≈ 0.05`)
-- Clean, reproducible pipeline
+[📥 Download Dataset](https://drive.google.com/drive/folders/1k7sIiFVifEoUBanHORgapISwdpMvhn1P?usp=sharing)
 
-## Dataset Download
+## Model Architecture: SimpleUNet v11aa
 
-The complete pre-generated dataset used throughout this project is available here:
+The **SimpleUNet v11aa** is a lightweight U-Net architecture designed for high-fidelity speech denoising in the complex STFT domain, optimized for embedded and edge audio applications.
 
-**`dataset_mixtures_1s_2000_v110.npz`** (1.3 GB)
+### Key Architectural Features:
+- **Input**: 2 channels (log-magnitude + phase) – shape `(Batch, 2, 129, 128)`
+- **Encoder**: Three downsampling stages (32 → 64 → 128 features) using 5×5 and 3×3 convolutions
+- **Bottleneck**: 256-feature layer for high-capacity representation
+- **Decoder**: Symmetric upsampling with additive skip connections and bilinear interpolation to preserve fine acoustic details
+- **Output**: Complex Ideal Ratio Mask (Real + Imaginary)
+- **Core Innovation**: **Banana Clamping** — frequency-dependent dynamic scaling applied at the final layer to constrain the mask according to acoustic priors
 
-[📥 Download Dataset Folder](https://drive.google.com/drive/folders/1k7sIiFVifEoUBanHORgapISwdpMvhn1P?usp=sharing)
+### Loss Function
+The model is trained with a hybrid multi-task loss combining:
+- Mask L1 loss
+- Waveform L1 loss (after ISTFT)
+- Strong phase consistency loss
 
-This dataset contains 2000 balanced 1-second frames with controlled SNR levels (0, 6, 12, 15 dB), using clean speech from LibriSpeech and selected noises from ESC-10. It is the reference dataset for all experiments in this repository.
+with adaptive scaling to balance the different terms.
+
+This lightweight design (~2M parameters) achieves a good compromise between computational efficiency and denoising performance, particularly in challenging non-stationary environments.
+
+**Future work**: Extension to **Continuous Wavelet Transform (CWT)** for improved time-frequency resolution in highly impulsive industrial noise.
 
 
 ## Results & Performance (v11aa - Banana Clamping)
@@ -78,8 +92,6 @@ This dataset contains 2000 balanced 1-second frames with controlled SNR levels (
 | 15 dB   | 1.445      | **2.268**                      |  +0.823                    | Good |
 
 </div>
-
-
 
 
 ### Visual Results & Audio Demos
