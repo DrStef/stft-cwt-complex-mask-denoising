@@ -40,7 +40,7 @@ The model **v11a** was primarily trained on mixtures at **SNR = 6 dB**, which re
 
 ## Model Architecture: SimpleUNet v11aa
 
-The **SimpleUNet v11aa** is a lightweight U-Net architecture designed for high-fidelity speech denoising in the complex STFT domain, optimized for embedded and edge audio applications.
+The **SimpleUNet v11a** is a lightweight U-Net architecture designed for high-fidelity speech denoising in the complex STFT domain, optimized for embedded and edge audio applications.
 
 ### Key Architectural Features:
 - **Input**: 2 channels (log-magnitude + phase) – shape `(Batch, 2, 129, 128)`
@@ -77,7 +77,7 @@ This lightweight design (~2M parameters) achieves a good compromise between comp
 
 ### Edge Deployment & Optimization
 
-The current **SimpleUNet v11aa** model contains approximately **1.35 million parameters**. This size makes it suitable for mid-range edge platforms such as the Raspberry Pi, NVIDIA Jetson Nano, or modern mobile processors.
+The current **SimpleUNet v11a** model contains approximately **1.35 million parameters**. This size makes it suitable for mid-range edge platforms such as the Raspberry Pi, NVIDIA Jetson Nano, or modern mobile processors.
 
 For tighter embedded constraints (low-power DSPs or microcontrollers), the architecture can be optimized without removing layers:
 - Reducing the number of channels (e.g., 16-32-64-128 instead of 32-64-128-256)
@@ -86,7 +86,7 @@ For tighter embedded constraints (low-power DSPs or microcontrollers), the archi
 
 These modifications are expected to significantly reduce memory footprint and inference time while preserving most of the denoising performance. Future iterations will focus on making the model truly microcontroller-friendly.
 
-## Results & Performance (v11aa - Banana Clamping)
+## Results & Performance (v11a - Banana Clamping)
 
 ### Objective Results (PESQ - Wideband)
 
