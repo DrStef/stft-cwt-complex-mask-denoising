@@ -26,13 +26,15 @@ Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** f
 - Provide reproducible experiments with controlled SNR mixtures (0, 6, 12, 15 dB).
 
 ### Dataset
-We use a custom pre-generated dataset: **`dataset_mixtures_1s_2000_v110.npz`** (1.3 GB)
+We use a custom pre-generated training dataset: **`dataset_mixtures_1s_2000_v110.npz`** (1.3 GB)
+All audio clips (speech and noise) are pre-filtered with a **High-pass Bessel filter at 150 Hz (order 5)**.
 
 - 2000 balanced 1-second frames (@ 16 kHz) with **STFT 128×128**
-- High-pass filter at 150 Hz
 - Clean speech from LibriSpeech (balanced male + female voices)
 - Noises from ESC-10: Rain, Sea Waves, Helicopter, Chainsaw, Fire Crackling
 - Controlled SNR levels: -6, 0, 6, 12 dB
+
+The model **v11a** was primarily trained on mixtures at **SNR = 6 dB**, which represents the main target operating condition, while being evaluated across a wider range (0, 6, 12, and 15 dB).
 
 [📥 Download Dataset](https://drive.google.com/drive/folders/1k7sIiFVifEoUBanHORgapISwdpMvhn1P?usp=sharing)
 
