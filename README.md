@@ -72,8 +72,17 @@ with adaptive scaling to balance the different terms.
 
 This lightweight design (~2M parameters) achieves a good compromise between computational efficiency and denoising performance, particularly in challenging non-stationary environments.
 
-**Future work**: Extension to **Continuous Wavelet Transform (CWT)** for improved time-frequency resolution in highly impulsive industrial noise.
 
+### Edge Deployment & Optimization
+
+The current **SimpleUNet v11aa** model contains approximately **1.35 million parameters**. This size makes it suitable for mid-range edge platforms such as the Raspberry Pi, NVIDIA Jetson Nano, or modern mobile processors.
+
+For tighter embedded constraints (low-power DSPs or microcontrollers), the architecture can be optimized without removing layers:
+- Reducing the number of channels (e.g., 16-32-64-128 instead of 32-64-128-256)
+- Switching to a smaller **STFT 64×64** representation
+- Applying post-training quantization (INT8) and pruning
+
+These modifications are expected to significantly reduce memory footprint and inference time while preserving most of the denoising performance. Future iterations will focus on making the model truly microcontroller-friendly.
 
 ## Results & Performance (v11aa - Banana Clamping)
 
@@ -161,10 +170,6 @@ You can listen to the full 10-second clips and explore the corresponding STFT vi
 
 </div>
 
-
-
-
-
 ### Audio Examples (10 seconds)
 
 
@@ -185,6 +190,9 @@ The **Banana Clamping** ("Os de Chien") strategy delivers strong and consistent 
 
 
 
+##  Future work
+
+Extension to **Continuous Wavelet Transform (CWT)** for improved time-frequency resolution in highly impulsive industrial noise.
 
 
 
