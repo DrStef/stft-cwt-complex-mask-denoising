@@ -19,7 +19,7 @@ update May 2026 <br>
 
 **PHASE I: Simple U-Net with 128×128 STFT & Banana Clamping**
 
-[SimpleUNet v11aa - STFT Denoising with Banana Clamping](link-to-your-notebook.ipynb)
+[SimpleUNet v11a - STFT Denoising with Banana Clamping](link-to-your-notebook.ipynb)
 
 Lightweight U-Net for speech enhancement in hostile acoustic environments. The model uses 128×128 STFT frames, a hybrid loss with strong phase consistency, and our custom frequency-dependent **Banana Clamping** ("Os de Chien"). It was trained and evaluated on speech + noise mixtures (rain, helicopter, chainsaw, etc.) at controlled SNR levels (6 dB  and 0 to 15 dB).
 
