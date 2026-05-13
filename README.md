@@ -54,6 +54,10 @@ The **SimpleUNet v11a** is a lightweight U-Net architecture designed for high-fi
 
 <br>
 
+**SimpleUNet architecture**
+
+<br> 
+
 <div align="center">
   
 | <p align="center"> <img src="images/SimpleUNet_architecture_red.png" width="800" alt="Waveform"> </p> |
@@ -63,6 +67,16 @@ The **SimpleUNet v11a** is a lightweight U-Net architecture designed for high-fi
 </div>
 
 <br>
+
+**Mask clamping**
+
+<br> 
+
+| <p align="center"> <img src="images/constant_clamping_v11a.png" width="400" alt="Waveform"> </p> | <p align="center"> <img src="images/banana_clamping_v11a.png" width="400" alt="Waveform"> </p> | 
+| --- | --- |
+| <p align="center"> <i> **Contant clamping K=+/-5** </i> </p> | <p align="center"> <i> **Banana clamping** </i> </p> |
+
+
 
 ### Loss Function
 The model is trained with a hybrid multi-task loss combining:
