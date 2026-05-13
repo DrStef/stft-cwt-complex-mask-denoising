@@ -20,6 +20,13 @@ The current focus is on **STFT-based processing** with a lightweight **SimpleUNe
 
 Future work will extend the pipeline to **Continuous Wavelet Transform (CWT)** for better handling of non-stationary and impulsive noises.
 
+### Important Note – Project Origin
+
+**This project was originally conceived for industrial acoustic monitoring and fault detection** in harsh, high-noise environments.  
+
+The **CWT version** (Continuous Wavelet Transform), in particular, is developed to handle highly non-stationary signals and impulsive transients (shocks, mechanical impacts, machine failures). The adaptive frequency-dependent clamping strategy ("Banana Clamping" or "Os de Chien") idea came initially with these industrial applications in mind — allowing more freedom at low and high frequencies while maintaining tight control in critical bands. <br>
+For practical validation and benchmarking purposes, the current models are tested on **speech + noise mixtures** (LibriSpeech + ESC-10). Both STFT and CWT approaches are compared in this speech context. However, **the ultimate goal remains industrial sound monitoring and anomaly detection**.
+
 ### Project Goals
 - Develop robust denoising solutions suitable for **edge / embedded** devices, targeting applications such as EERS communication systems.
 - Maintain high voice clarity and reduce hoarseness even in low SNR conditions.
@@ -48,9 +55,9 @@ The **SimpleUNet v11a** is a lightweight U-Net architecture designed for high-fi
 - **Bottleneck**: 256-feature layer for high-capacity representation
 - **Decoder**: Symmetric upsampling with additive skip connections and bilinear interpolation to preserve fine acoustic details
 - **Output**: Complex Ideal Ratio Mask (Real + Imaginary)
-- **Banana Clamping** — frequency-dependent dynamic scaling applied at the final layer to constrain the mask according to acoustic priors.
+- **frequency-dependent dynamic scaling - banana clamping** applied at the final layer, inspired by the Speech Banana in audiology, to better constrain the mask according to the natural energy distribution of human speech.
   The Banana Clamping profile was specifically designed for **hostile and non-stationary environments** such as industrial machinery, and other strong broadband noises. In the notebook: helicopter, chainsaw from the ESC_10 dataset.  
-      It provides a clear advantage in these difficult conditions by applying stronger suppression where needed while preserving naturalness in the vocal range. On more stationary noises (e.g. rain or sea waves), the benefit is smaller and a simpler constant clamping K=+/-5 can perform comparably.
+  It provides a clear advantage in these difficult conditions by applying stronger suppression where needed while preserving naturalness in the vocal range. On more stationary noises (e.g. rain or sea waves), the benefit is smaller and a simpler constant clamping K=+/-5 can perform comparably.
 
 <br>
 
@@ -72,9 +79,13 @@ The **SimpleUNet v11a** is a lightweight U-Net architecture designed for high-fi
 
 <br> 
 
+<div align="center">
+
 | <p align="center"> <img src="images/constant_clamping_v11aa.png" width="400" alt="Waveform"> </p> | <p align="center"> <img src="images/banana_clamping_v11a.png" width="400" alt="Waveform"> </p> | 
 | --- | --- |
 | <p align="center"> <i> **Contant clamping K=+/-5** </i> </p> | <p align="center"> <i> **Banana clamping** </i> </p> |
+
+</div>
 
 <br>
 
